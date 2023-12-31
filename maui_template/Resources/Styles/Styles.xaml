@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style
+        TargetType="ScrollView">
+        <Setter
+            Property="VerticalOptions"
+            Value="FillAndExpand" />
+        <Setter
+            Property="VerticalScrollBarVisibility"
+            Value="Never" />
+    </Style>
+
+    <Style
+        TargetType="Frame">
+        <Setter
+            Property="IsClippedToBounds"
+            Value="True" />
+        <Setter
+            Property="Padding"
+            Value="0" />
+        <Setter
+            Property="BackgroundColor"
+            Value="White" />
+        <Setter
+            Property="HasShadow"
+            Value="False" />
+    </Style>
+
+    <Style
+        TargetType="Label">
+        <Setter
+            Property="FontSize"
+            Value="13" />
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource TextColor}" />
+        <Setter
+            Property="FontFamily"
+            Value="SFRegular" />
+    </Style>
+
+    <Style
+        TargetType="Label"
+        x:Key="ErrorLabel">
+        <Setter
+            Property="FontFamily"
+            Value="SFRegular" />
+        <Setter
+            Property="FontSize"
+            Value="12" />
+        <Setter
+            Property="HeightRequest"
+            Value="18" />
+        <Setter
+            Property="Opacity"
+            Value="0" />
+        <Setter
+            Property="TranslationX"
+            Value="-15" />
+        <Setter
+            Property="HorizontalOptions"
+            Value="EndAndExpand" />
+        <Setter
+            Property="TextColor"
+            Value="Red" />
+    </Style>
+
+    <Style
+        TargetType="Border">
+        <Setter
+            Property="StrokeThickness"
+            Value="0" />
+    </Style>
+
+</ResourceDictionary>
+

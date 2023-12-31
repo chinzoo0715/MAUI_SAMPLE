@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="maui_template.Views.Controller.TabBarView">
+    <Grid
+        HeightRequest="90"
+        BackgroundColor="White"
+        VerticalOptions="EndAndExpand"
+        HorizontalOptions="FillAndExpand"
+        ColumnDefinitions="*,*,*,*">
+        <Grid.Shadow>
+            <Shadow
+                Brush="#30000000"
+                Offset="0,5"
+                Opacity="20" />
+        </Grid.Shadow>
+        <Grid
+            RowDefinitions="auto,12"
+            RowSpacing="8"
+            Padding="0,20"
+            VerticalOptions="CenterAndExpand">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Home_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image
+                Source="home_passive">
+                <Image.Triggers>
+                    <DataTrigger
+                        TargetType="Image"
+                        Binding="{Binding ChosenTab}"
+                        Value="home">
+                        <Setter
+                            Property="Source"
+                            Value="home_active" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Text="Home"
+                FontSize="12"
+                TextColor="#898686">
+                <Label.Triggers>
+                    <DataTrigger
+                        TargetType="Label"
+                        Binding="{Binding ChosenTab}"
+                        Value="home">
+                        <Setter
+                            Property="TextColor"
+                            Value="{DynamicResource Primary}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+        <Grid
+            Grid.Column="1"
+            RowDefinitions="auto, 12"
+            RowSpacing="8"
+            Padding="0,20"
+            VerticalOptions="CenterAndExpand">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Payment_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image
+                Source="payment_passive">
+                <Image.Triggers>
+                    <DataTrigger
+                        TargetType="Image"
+                        Binding="{Binding ChosenTab}"
+                        Value="payment">
+                        <Setter
+                            Property="Source"
+                            Value="payment_active" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Text="Payments"
+                FontSize="12"
+                TextColor="#898686">
+                <Label.Triggers>
+                    <DataTrigger
+                        TargetType="Label"
+                        Binding="{Binding ChosenTab}"
+                        Value="payment">
+                        <Setter
+                            Property="TextColor"
+                            Value="{DynamicResource Primary}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+        <Grid
+            Grid.Column="2"
+            RowDefinitions="auto, 12"
+            RowSpacing="8"
+            Padding="0,20"
+            VerticalOptions="CenterAndExpand">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Dashboard_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image
+                Source="dashboard_passive">
+                <Image.Triggers>
+                    <DataTrigger
+                        TargetType="Image"
+                        Binding="{Binding ChosenTab}"
+                        Value="dashboard">
+                        <Setter
+                            Property="Source"
+                            Value="dashboard_active" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Text="Dashboard"
+                FontSize="12"
+                TextColor="#898686">
+                <Label.Triggers>
+                    <DataTrigger
+                        TargetType="Label"
+                        Binding="{Binding ChosenTab}"
+                        Value="dashboard">
+                        <Setter
+                            Property="TextColor"
+                            Value="{DynamicResource Primary}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+        <Grid
+            Grid.Column="3"
+            RowDefinitions="auto,12"
+            RowSpacing="8"
+            Padding="0,20"
+            VerticalOptions="CenterAndExpand">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Notification_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Image
+                Source="noti_passive">
+                <Image.Triggers>
+                    <DataTrigger
+                        TargetType="Image"
+                        Binding="{Binding ChosenTab}"
+                        Value="notification">
+                        <Setter
+                            Property="Source"
+                            Value="noti_active" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Text="Notification"
+                FontSize="12"
+                TextColor="#898686">
+                <Label.Triggers>
+                    <DataTrigger
+                        TargetType="Label"
+                        Binding="{Binding ChosenTab}"
+                        Value="notification">
+                        <Setter
+                            Property="TextColor"
+                            Value="{DynamicResource Primary}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+    </Grid>
+</ContentView>
+

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>maui_template</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- Display name -->
+		<ApplicationTitle>maui_template</ApplicationTitle>
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.maui_template</ApplicationId>
+		<ApplicationIdGuid>bb29ada1-c8c8-4ec0-b0c0-5ff2f173cb05</ApplicationIdGuid>
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<!-- App fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Plugin.Fingerprint" Version="3.0.0-beta.1" />
+		<PackageReference Include="RestSharp" Version="110.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Constants\" />
+		<Folder Include="Models\" />
+		<Folder Include="Services\" />
+		<Folder Include="ViewModels\" />
+		<Folder Include="Views\" />
+		<Folder Include="Views\Auth\" />
+		<Folder Include="Views\Home\" />
+		<Folder Include="Services\Auth\" />
+		<Folder Include="Services\Home\" />
+		<Folder Include="Services\AppEnvironment\" />
+		<Folder Include="Services\RequestProvider\" />
+		<Folder Include="Services\Navigation\" />
+		<Folder Include="Views\Basic\" />
+		<Folder Include="Views\Controller\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="Resources\Images\" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="maui_template.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:auth="clr-namespace:maui_template.Views.Auth"
+    xmlns:home="clr-namespace:maui_template.Views.Home"
+    xmlns:controller="clr-namespace:maui_template.Views.Controller"
+    BackgroundColor="White"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="False"
+    Shell.NavBarIsVisible="False">
+
+    <!--prevents from exit app using back button in Android-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            TextOverride="" />
+    </Shell.BackButtonBehavior>
+
+    <!--Welcome-->
+    <ShellContent
+        ContentTemplate="{DataTemplate auth:WelcomePage}"
+        Route="Welcome" />
+
+    <!--Main page-->
+    <TabBar
+        Shell.PresentationMode="Animated"
+        Route="Main">
+        <ShellContent
+            Route="Home"
+            Shell.FlyoutBehavior="Flyout"
+            ContentTemplate="{DataTemplate home:HomePage}" />
+        <ShellContent
+            Route="Payment"
+            ContentTemplate="{DataTemplate home:PaymentPage}" />
+        <ShellContent
+            Route="Dashboard"
+            ContentTemplate="{DataTemplate home:DashboardPage}">
+        </ShellContent>
+        <ShellContent
+            Route="Notification"
+            ContentTemplate="{DataTemplate home:NotificationPage}">
+        </ShellContent>
+    </TabBar>
+
+    <Shell.FlyoutContent>
+        <controller:SideMenuView
+            x:Name="SideMenu" />
+    </Shell.FlyoutContent>
+
+</Shell>
+

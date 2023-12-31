@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="maui_template.Views.Controller.InputView">
+    <StackLayout>
+        <Border
+            x:Name="EntryBorder"
+            StrokeShape="RoundRectangle 40"
+            HeightRequest="60"
+            Padding="30,0"
+            Stroke="{DynamicResource SecondaryTextColor}"
+            StrokeThickness="1"
+            BackgroundColor="White">
+            <Border.Triggers>
+                <DataTrigger
+                    TargetType="Border"
+                    Binding="{Binding IsPasswordValue}"
+                    Value="True">
+                    <Setter
+                        Property="Padding"
+                        Value="28,0,10,0" />
+                </DataTrigger>
+            </Border.Triggers>
+            <StackLayout
+                Orientation="Horizontal">
+                <Frame
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="White"
+                    HeightRequest="55"
+                    HasShadow="False"
+                    Padding="0"
+                    BorderColor="Transparent"
+                    CornerRadius="10">
+                    <VerticalStackLayout>
+                        <Entry
+                            x:Name="MainEntry"
+                            Focused="MainEntry_Focused"
+                            Unfocused="MainEntry_Unfocused"
+                            TextChanged="EntryTxt_Changed"
+                            Text="{Binding Text}"
+                            TextColor="{DynamicResource TextColor}"
+                            FontSize="{OnPlatform iOS=14, Android=14}"
+                            FontFamily="SFMedium"
+                            HeightRequest="90"
+                            IsSpellCheckEnabled="False"
+                            IsTextPredictionEnabled="False"
+                            BackgroundColor="White"
+                            Keyboard="{Binding KeyBoardType}"
+                            Margin="{OnPlatform iOS='-1', Android='0,0,0,-10'}"
+                            TranslationY="{OnPlatform Android=-20, iOS=-15}"
+                            IsPassword="{Binding IsPasswordValue}"
+                            MaxLength="{Binding MaxLengthNumber}"
+                            PlaceholderColor="{DynamicResource SecondaryTextColor}"
+                            Placeholder="{Binding PlaceHolderTxt}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+                <Border
+                    IsVisible="{Binding IsPasswordValue}"
+                    BackgroundColor="Transparent"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    StrokeShape="RoundRectangle 40">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="ShowPass" />
+                    </Border.GestureRecognizers>
+                    <Image
+                        HeightRequest="13"
+                        Source="showpass">
+                        <Image.Triggers>
+                            <DataTrigger
+                                TargetType="Image"
+                                Binding="{Binding Source={x:Reference MainEntry}, Path=IsPassword}"
+                                Value="True">
+                                <Setter Property="HeightRequest"
+                                        Value="18"/>
+                                <Setter
+                                    Property="Source"
+                                    Value="hidepass" />
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Border>
+            </StackLayout>
+        </Border>
+        <Label
+            x:Name="ErrorTxt"
+            Style="{StaticResource ErrorLabel}">
+        </Label>
+    </StackLayout>
+</ContentView>
+

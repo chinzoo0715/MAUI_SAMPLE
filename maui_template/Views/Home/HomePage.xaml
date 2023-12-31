@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controller="clr-namespace:maui_template.Views.Controller"
+    x:Class="maui_template.Views.Home.HomePage"
+    Title="HomePage">
+    <Grid
+        VerticalOptions="FillAndExpand">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout
+                    Margin="30,0"
+                    VerticalOptions="Start"
+                    Orientation="Horizontal">
+                    <Border
+                        StrokeShape="RoundRectangle 24"
+                        WidthRequest="48"
+                        HeightRequest="48">
+                        <Image
+                            Aspect="AspectFill"
+                            Source="avatar" />
+                    </Border>
+                    <StackLayout
+                        Margin="10,0,0,0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand">
+                        <Label
+                            Text="Welcome"
+                            FontSize="15"
+                            TextColor="{DynamicResource SecondaryTextColor}" />
+                        <Label
+                            Text="Alex Josh"
+                            FontSize="15" />
+                    </StackLayout>
+                    <StackLayout
+                        WidthRequest="50">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Menu_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                        <Image
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Source="menu" />
+                    </StackLayout>
+
+                </StackLayout>
+                <Frame
+                    Margin="0,25,0,0"
+                    HeightRequest="180"
+                    IsVisible="{Binding CustCard, Converter={StaticResource IsListNotNullOrEmptyConverter}}">
+                    <CarouselView
+                        x:Name="ProdSlider"
+                        PeekAreaInsets="30"
+                        Loop="False"
+                        IsBounceEnabled="True"
+                        BackgroundColor="Transparent"
+                        HorizontalScrollBarVisibility="Never"
+                        ItemsSource="{Binding CustCard}">
+                        <CarouselView.ItemsLayout>
+                            <LinearItemsLayout
+                                Orientation="Horizontal"
+                                ItemSpacing="5"
+                                SnapPointsType="MandatorySingle"
+                                SnapPointsAlignment="Center" />
+                        </CarouselView.ItemsLayout>
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image
+                                        VerticalOptions="CenterAndExpand"
+                                        Source="card" />
+                                    <StackLayout
+                                        VerticalOptions="Center"
+                                        Padding="20">
+                                        <Label
+                                            Text="{Binding CARD_NAME}"
+                                            TextColor="White"
+                                            FontSize="20" />
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding CARD_NUMBER}"
+                                            FontSize="24"
+                                            FontFamily="SFBold"
+                                            TextColor="White" />
+                                        <StackLayout
+                                            Margin="0,30,0,0"
+                                            VerticalOptions="Start"
+                                            Orientation="Horizontal">
+                                            <StackLayout
+                                                VerticalOptions="Start">
+                                                <Label
+                                                    Text="Balance"
+                                                    TextColor="White"
+                                                    FontSize="16" />
+                                                <Label
+                                                    Text="{Binding CARD_BALANCE}"
+                                                    TextColor="White"
+                                                    FontSize="20"
+                                                    FontFamily="SFBold" />
+                                            </StackLayout>
+                                            <StackLayout
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="CenterAndExpand">
+                                                <Image
+                                                    WidthRequest="50"
+                                                    HeightRequest="50"
+                                                    Source="mastercard">
+                                                    <Image.Triggers>
+                                                        <DataTrigger
+                                                            TargetType="Image"
+                                                            Binding="{Binding CARD_TYPE}"
+                                                            Value="Visa">
+                                                            <Setter
+                                                                Property="Source"
+                                                                Value="visa" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </Frame>
+
+                <StackLayout
+                    VerticalOptions="Start"
+                    Spacing="5"
+                    Padding="30,0"
+                    Margin="0,50,0,0">
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="Featured"
+                        TextColor="{DynamicResource SecondaryTextColor}"
+                        FontSize="14" />
+                    <Grid
+                        HorizontalOptions="FillAndExpand"
+                        ColumnDefinitions="*,*,*,*">
+                        <Border
+                            BackgroundColor="#898686"
+                            StrokeShape="RoundRectangle 20"
+                            HeightRequest="73"
+                            WidthRequest="73">
+                            <Image
+                                HeightRequest="20"
+                                Source="transfer" />
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            BackgroundColor="#898686"
+                            StrokeShape="RoundRectangle 20"
+                            HeightRequest="73"
+                            WidthRequest="73">
+                            <Image
+                                HeightRequest="20"
+                                Source="bills" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            BackgroundColor="#898686"
+                            StrokeShape="RoundRectangle 20"
+                            HeightRequest="73"
+                            WidthRequest="73">
+                            <Image
+                                HeightRequest="20"
+                                Source="loans" />
+                        </Border>
+                        <Border
+                            Grid.Column="3"
+                            BackgroundColor="#898686"
+                            StrokeShape="RoundRectangle 20"
+                            HeightRequest="73"
+                            WidthRequest="73">
+                            <Image
+                                HeightRequest="20"
+                                Source="scan" />
+                        </Border>
+                    </Grid>
+                </StackLayout>
+                <StackLayout
+                    Margin="0,30,0,0"
+                    Padding="30,0">
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="Today"
+                        TextColor="{DynamicResource SecondaryTextColor}"
+                        FontSize="14" />
+                    <StackLayout
+                        Margin="0,20,0,0"
+                        Spacing="30"
+                        VerticalOptions="Start"
+                        BindableLayout.ItemsSource="{Binding CustTransaction}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout
+                                    HeightRequest="50"
+                                    Orientation="Horizontal">
+                                    <Image
+                                        HeightRequest="50"
+                                        Source="transaction" />
+                                    <StackLayout
+                                        Margin="15,0,0,0"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            Text="{Binding NAME}"
+                                            FontSize="14" />
+                                        <Label
+                                            Text="{Binding DESCRIPTION}"
+                                            FontSize="14"
+                                            Opacity="0.5" />
+
+                                    </StackLayout>
+                                    <Label
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Binding AMT, StringFormat='{}{0:#,#0$}'}"
+                                        FontSize="16"
+                                        FontFamily="SFMedium"
+                                        TextColor="{DynamicResource Primary}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout
+            Margin="{Binding MarginBottom}"
+            VerticalOptions="EndAndExpand">
+            <controller:TabBarView
+                ChosenTab="home" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

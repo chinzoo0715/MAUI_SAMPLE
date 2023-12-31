@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controller="clr-namespace:maui_template.Views.Controller"
+    x:Class="maui_template.Views.Auth.LoginPage"
+    Title="LoginPage">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                HeightRequest="60"
+                WidthRequest="100">
+                <Image
+                    Margin="30,0,0,0"
+                    HorizontalOptions="Start"
+                    VerticalOptions="CenterAndExpand"
+                    Source="back_arrow" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Back_Tapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout
+                Padding="30,0"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Hi, Welcome back!"
+                    FontFamily="SFBold"
+                    FontSize="24" />
+                <Label
+                    Margin="0,5,0,0"
+                    HorizontalTextAlignment="Center"
+                    Text="Welcome back, you have been missed"
+                    FontFamily="SFRegular"
+                    FontSize="16"
+                    TextColor="{DynamicResource SecondaryTextColor}" />
+                <controller:InputView
+                    x:Name="UsernameTxt"
+                    Margin="0,50,0,0"
+                    PlaceHolderTxt="Mobile number" />
+                <controller:InputView
+                    x:Name="PasswordTxt"
+                    Margin="0,5,0,0"
+                    IsPasswordValue="True"
+                    PlaceHolderTxt="Password" />
+                <StackLayout
+                    x:Name="ForgotPassBtn"
+                    HorizontalOptions="EndAndExpand"
+                    HeightRequest="40"
+                    Padding="0,0,10,0"
+                    WidthRequest="150">
+                    <Label
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="CenterAndExpand"
+                        Text="Forgot password?"
+                        FontFamily="SFRegular"
+                        FontSize="12"
+                        TextColor="{DynamicResource Primary}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="ForgotPassword_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <controller:ButtonView
+                        x:Name="LoginBtn"
+                        Clicked="Login_Clicked"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="0,20,0,0"
+                        Text="Log in" />
+                    <StackLayout
+                        x:Name="FingerprintBtn"
+                        HeightRequest="60"
+                        WidthRequest="60">
+                        <Image
+                            x:Name="FingerPrintImage"
+                            HeightRequest="30"
+                            Aspect="AspectFit"
+                            Source="faceid" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="FingerPrintBtn_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="FingerPrintCheckboxBtn"
+                    TranslationX="-15"
+                    Padding="5,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <CheckBox
+                        Color="{DynamicResource Primary}"
+                        x:Name="FingerPrintCheckBox" />
+                    <Label
+                        x:Name="FingerPrintCheckBoxTxt"
+                        VerticalOptions="CenterAndExpand"
+                        Text="Login with fingerprint next time ?"
+                        TextColor="{DynamicResource SecondaryTextColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="FingerprintCheckBox_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="RegisterBtn"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="End"
+                Orientation="Horizontal">
+                <Label
+                    VerticalTextAlignment="Center"
+                    Text="Don't have an account?"
+                    FontSize="16" />
+                <StackLayout
+                    HeightRequest="40">
+                    <Label
+                        Margin="5,0"
+                        VerticalOptions="CenterAndExpand"
+                        Text="Sign up"
+                        FontSize="16"
+                        TextColor="{DynamicResource Primary}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Register_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
