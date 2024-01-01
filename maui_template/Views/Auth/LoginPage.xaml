@@ -111,6 +111,7 @@
             </StackLayout>
 
             <StackLayout
+                Margin="{OnPlatform Android='0,0,0,20'}"
                 x:Name="RegisterBtn"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="End"

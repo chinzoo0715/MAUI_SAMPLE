@@ -76,6 +76,7 @@ public partial class LoginPage : ContentPage
         }
 
         UsernameTxt.Text = SettingsValues.Instance.UserName;
+        PasswordTxt.Text = string.Empty;
     }
 
     async void Back_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)

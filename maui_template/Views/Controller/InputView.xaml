@@ -28,7 +28,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand"
                     BackgroundColor="White"
-                    HeightRequest="55"
+                    HeightRequest="{OnPlatform iOS=55, Android=50}"
                     HasShadow="False"
                     Padding="0"
                     BorderColor="Transparent"

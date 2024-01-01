@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="456" height="456" viewBox="0 0 456 456" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="456" height="456" fill="#512BD4" />
+<svg width="219" height="219" viewBox="0 0 219 219" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="219" height="219" fill="#4A3FFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M163.093 119C158.391 144.601 135.961 164 109 164C78.6243 164 54 139.376 54 109C54 104.878 54.4534 100.863 55.3129 97H104C106.761 97 109 94.7614 109 92C109 89.2386 106.761 87 104 87H58.5765C67.0636 67.575 86.4465 54 109 54C139.376 54 164 78.6243 164 109H114C111.239 109 109 111.239 109 114C109 116.761 111.239 119 114 119H163.093Z" fill="white"/>
 </svg>
-

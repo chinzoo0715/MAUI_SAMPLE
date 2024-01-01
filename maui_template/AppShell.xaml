@@ -24,11 +24,11 @@
 
     <!--Main page-->
     <TabBar
+        Shell.FlyoutBehavior="Flyout"
         Shell.PresentationMode="Animated"
         Route="Main">
         <ShellContent
             Route="Home"
-            Shell.FlyoutBehavior="Flyout"
             ContentTemplate="{DataTemplate home:HomePage}" />
         <ShellContent
             Route="Payment"
